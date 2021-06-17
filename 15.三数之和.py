@@ -3,7 +3,18 @@
 #
 # [15] 三数之和
 #
+# 要做過才會知道解法
+# 主要就是每一次先固定最左邊的數字不要動，當作標準
+# 剩下的就使用左右指標來找解
 
+# Ex : 
+# [ -3, -2, 0, 1, 2, 3]
+#    S   L           R
+# -3 當標準不動
+
+# L/R 當雙指標向內移動
+# [ -3, -2, 0, 1, 2, 3]
+#    S      L     R
 # @lc code=start
 from typing import List
 
@@ -11,33 +22,6 @@ from typing import List
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         print('')
-        x,y = 0,0
-        i=0
-        m = {}
-        result = []
-        while i<len(nums):
-            y = i + 1
-            while y<len(nums):
-                z = nums[y]
-                if z in m and len(m[z]) != 0:
-                    for r in m[z]:
-                        if r.count(y) == 0:
-                            l  = []
-                            for n in r:
-                                l.append(nums[n])
-                            l.append(z)
-                            result.append(l)
-                            m[z].remove(r)
-                    # break
-                k = 0 - nums[i] - nums[y]
-                if k in m:
-                    m[k].append([i,y])
-                else:
-                    m[k] = [[i,y]]
-                y += 1
-            i += 1
-        return result
-
 # @lc code=end
 
 print(Solution().threeSum([-1,0,1,2,-1,-4]))
