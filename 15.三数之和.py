@@ -28,7 +28,7 @@ class Solution:
                             l.append(z)
                             result.append(l)
                             m[z].remove(r)
-                    break
+                    # break
                 k = 0 - nums[i] - nums[y]
                 if k in m:
                     m[k].append([i,y])
