@@ -1,0 +1,11 @@
+{
+  // See http://go.microsoft.com/fwlink/?LinkId=827846
+  // for the documentation about the extensions.json format
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "jsshou.note-sync",
+    "yzhang.markdown-all-in-one",
+    "kortina.vscode-markdown-notes",
+    "pucelle.run-on-save",
+  ]
+}
