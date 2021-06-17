@@ -19,7 +19,7 @@ class Solution:
             y = i + 1
             while y<len(nums):
                 z = nums[y]
-                if z in m:
+                if z in m and len(m[z]) != 0:
                     for r in m[z]:
                         if r.count(y) == 0:
                             l  = []
