@@ -16,23 +16,28 @@ class Solution:
         m = {}
         result = []
         while i<len(nums):
-            if y==len(nums)-1:
-                return result
             y = i + 1
             while y<len(nums):
+                z = nums[y]
+                if z in m:
+                    for r in m[z]:
+                        if r.count(y) == 0:
+                            l  = []
+                            for n in r:
+                                l.append(nums[n])
+                            l.append(z)
+                            result.append(l)
+                            m[z].remove(r)
+                    break
                 k = 0 - nums[i] - nums[y]
-                if k in m:
-                    print(m[k],k)
-                    if m[k] is not in y
-                        for r in m[k]:
-                            if
                 if k in m:
                     m[k].append([i,y])
                 else:
                     m[k] = [[i,y]]
                 y += 1
             i += 1
+        return result
 
 # @lc code=end
 
-Solution().threeSum([-1,0,1,2,-1,-4])
+print(Solution().threeSum([-1,0,1,2,-1,-4]))
