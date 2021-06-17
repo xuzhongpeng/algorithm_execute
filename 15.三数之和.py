@@ -23,6 +23,9 @@ class Solution:
                 k = 0 - nums[i] - nums[y]
                 if k in m:
                     print(m[k],k)
+                    if m[k] is not in y
+                        for r in m[k]:
+                            if
                 if k in m:
                     m[k].append([i,y])
                 else:
