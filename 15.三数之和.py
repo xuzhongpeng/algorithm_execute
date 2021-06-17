@@ -21,7 +21,12 @@ class Solution:
             y = i + 1
             while y<len(nums):
                 k = 0 - nums[i] - nums[y]
-                if k in 
+                if k in m:
+                    print(m[k],k)
+                if k in m:
+                    m[k].append([i,y])
+                else:
+                    m[k] = [[i,y]]
                 y += 1
             i += 1
 
