@@ -8,7 +8,7 @@ from typing import List
 # @lc code=start
 class Solution:
     def findKthLargest(self, nums: List[int], k: int) -> int:
-        self.quickSort(nums)
+        self.quickSort(nums,0,len(nums)-1)
         return nums[-k]
     def quickSort(self,nums:List[int],left,right):
         if left>=right: return
@@ -24,4 +24,4 @@ class Solution:
 
 # @lc code=end
 
-print(Solution().findKthLargest([3,2,3,1,2,4,5,5,6],9))
+print(Solution().findKthLargest([3,2,3,1,2,4,5,5,6],6))
