@@ -2,7 +2,7 @@
 # @lc app=leetcode.cn id=215 lang=python3
 #
 # [215] 数组中的第K个最大元素
-#
+# 最右就是使用堆排序 建立 最小堆
 from typing import List
 
 # @lc code=start
