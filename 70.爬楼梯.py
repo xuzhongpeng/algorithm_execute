@@ -7,11 +7,15 @@
 # @lc code=start
 class Solution:
     def climbStairs(self, n: int) -> int:
-        def p(f):
-            if f==1: return 1
-            elif f == 2: return 2
-            return p(f-1)+2
-        return p(n)
+        i=2
+        f1=1
+        f2=2
+        now = 0
+        while i<n-1:
+            now = f1 + f2
+            f1,f2 = f2,now
+            i += 1
+        return now
 # @lc code=end
 
-print(Solution().climbStairs(5))
+print(Solution().climbStairs(4))
