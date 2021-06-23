@@ -10,12 +10,12 @@ class Solution:
         i=2
         f1=1
         f2=2
-        now = 0
-        while i<n-1:
+        now = f1 if n==1 else f2 if n==2 else  0
+        while i<n:
             now = f1 + f2
             f1,f2 = f2,now
             i += 1
         return now
 # @lc code=end
 
-print(Solution().climbStairs(4))
+print(Solution().climbStairs(2))
