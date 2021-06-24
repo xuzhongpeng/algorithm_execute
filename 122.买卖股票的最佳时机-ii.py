@@ -13,14 +13,17 @@ class Solution:
         if len(prices)==0:return 0
         a = prices[0]
         b = 0
-        i = 0
+        r = 0
         for p in prices:
-            a = min(p,a)
-            b = max(p-a,b)
-            i += 1
-        return b
+            if b >= p:
+                a = p
+                r += b
+                b = 0
+            else:
+                a = min(p,a)
+                b = max(p-a,b)
+        return r + b
 # @lc code=end
 s= Solution()
-print(s.maxProfit([7,6,5,4,3]))
-# @lc code=end
+print(s.maxProfit([1,3,5,4,3,7,6,9,2,4]))
 
