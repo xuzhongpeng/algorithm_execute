@@ -13,19 +13,17 @@ class Solution:
         if len(prices)==0:return 0
         a = prices[0]
         b = 0
-        c = 0
+        c = 0 # 上次的股价
         r = 0
         for p in prices:
-            x = b > 0 and p < c
-            y = b > 0 and c == 0
-            if x or y:
+            if p < c:
                 a = p
                 r += b
                 b = 0
-                c = p
             else:
                 a = min(p,a)
                 b = max(p-a,b)
+            c = p
         return r + b
 # @lc code=end
 s= Solution()
