@@ -10,10 +10,15 @@ from typing import List
 
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        a = 0
+        if len(prices)==0:return 0
+        a = prices[0]
         b = 0
-        for p in prices:
-            a = min()
+        i = 0
+        while i < len(prices):
+            a = min(prices[i],a)
+            b = max(prices[i]-a,b)
+            i += 1
+        return b
 # @lc code=end
 s= Solution()
-print(s.maxProfit([7,1,5,3,6,4]))
+print(s.maxProfit([7,6,5,4,3]))
