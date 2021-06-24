@@ -13,12 +13,16 @@ class Solution:
         if len(prices)==0:return 0
         a = prices[0]
         b = 0
+        c = 0
         r = 0
         for p in prices:
-            if b >= p:
+            x = b > 0 and p < c
+            y = b > 0 and c == 0
+            if x or y:
                 a = p
                 r += b
                 b = 0
+                c = p
             else:
                 a = min(p,a)
                 b = max(p-a,b)
