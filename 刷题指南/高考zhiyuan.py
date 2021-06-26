@@ -11,8 +11,7 @@ major = '计算机' #input("请查询输入专业：")
 
 times = 2020 #input("请输入查询年份(2014~2018)：")
 
-# for i in range(32,968,1):#学校id从[32,967),省略前面部分可以节约时间
-for i in range(967,1500,1):
+for i in range(32,1020,1):#学校id从[32,967),省略前面部分可以节约时间
   # url = f'https://api.eol.cn/gkcx/api/?access_token=&local_province_id=52&local_type_id=1&page=1&school_id={i}&signsafe=&size=20&uri=apidata/api/gk/score/special&year='+str(times)
   url = f'https://static-data.eol.cn/www/2.0/schoolspecialindex/{str(times)}/{i}/50/1/7/1.json'
   time.sleep(0.1) #暂停时间模拟人为请求
