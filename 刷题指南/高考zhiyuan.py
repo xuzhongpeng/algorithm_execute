@@ -1,5 +1,5 @@
 import requests,time #导入库
-
+import re
 #制作请求头
 
 headers={
@@ -15,9 +15,10 @@ for i in range(32,968,1):#学校id从[32,967),省略前面部分可以节约时�
   url = f'https://api.eol.cn/gkcx/api/?access_token=&local_province_id=52&local_type_id=1&page=1&school_id={i}&signsafe=&size=20&uri=apidata/api/gk/score/special&year='+str(times)
   url = f'https://static-data.eol.cn/www/2.0/schoolspecialindex/{str(times)}/{i}/50/1/7/1.json'
   time.sleep(0.1) #暂停时间模拟人为请求
-  res = requests.post(url=url,headers=headers)
-  for items in res.json()['data']['item']:
-    if('spname' in items): #存在spname才执行，如西南科技大学
-      if (items['spname'] == major):
-        print(items['name'],'\t',str(times)+"年"+str(major)+"录取最高分",items['max'],'\t',"平均分：",items['average'],'\t',"最低分：",items['min'],'\t',"最低位次:",items['min_section'],'\t',"录取批次:",items['local_batch_name'],'\n')
+  res = requests.get(url=url,headers=headers)
+  if 'data' in res.json():
+    for items in res.json()['data']['item']:
+      if('spname' in items): #存在spname才执行，如西南科技大学
+        if (re.match( r'计算机', items['spname'], re.M|re.I) and 'min_section' in  items and  int(items['min_section']) > 20000 and int(items['min_section']) < 30000):
+          print(items['school_id'],'\t',str(times)+"年"+str(major)+"录取最高分",items['max'],'\t',"平均分：",items['average'],'\t',"最低分：",items['min'],'\t',"最低位次:",items['min_section'],'\t',"录取批次:",items['local_batch_name'],'\n')
 print(str(times)+"年全国"+str(major)+"专业录取信息查询完成！") #所有数据遍历完成后才会打印它
