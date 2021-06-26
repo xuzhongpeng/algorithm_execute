@@ -19,12 +19,12 @@ for i in range(32,968,1):#学校id从[32,967),省略前面部分可以节约时�
   if 'data' in res.json():
     for items in res.json()['data']['item']:
       if('spname' in items): #存在spname才执行，如西南科技大学
-        if (re.match( r'计算机', items['spname'], re.M|re.I) and 'min_section' in  items and  int(items['min_section']) > 20000 and int(items['min_section']) < 30000):
+        if (re.match( r'计算机|软件|人工智能', items['spname'], re.M|re.I) and 'min_section' in  items and  int(items['min_section']) > 19000 and int(items['min_section']) < 30000):
           id=items['school_id']
           s = requests.get(url=f'https://static-data.eol.cn/www/2.0/school/{id}/info.json',headers=headers)
-          name = ''
+          info = {}
           school = s.json()
           if 'data' in school:
-            name = school['data']['name']
-          print(items['school_id'],'\t',name,'\t',items['spname'],'\t',str(times)+"年"+str(major)+"录取最高分",items['max'],'\t',"平均分：",items['average'],'\t',"最低分：",items['min'],'\t',"最低位次:",items['min_section'],'\t',"录取批次:",items['local_batch_name'],'\n')
+            info = school['data']
+          print(items['school_id'],'\t',info['name'],'\t',info['belong'],'\t',items['spname'],'\t',str(times)+"年"+str(major)+"录取最高分",items['max'],'\t',"平均分：",items['average'],'\t',"最低分：",items['min'],'\t',"最低位次:",items['min_section'],'\t',"录取批次:",items['local_batch_name'],'\n')
 print(str(times)+"年全国"+str(major)+"专业录取信息查询完成！") #所有数据遍历完成后才会打印它
