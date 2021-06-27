@@ -26,5 +26,5 @@ for i in range(32,1020,1):#学校id从[32,967),省略前面部分可以节约时
           school = s.json()
           if 'data' in school:
             info = school['data']
-          print(info['name'],'\t',info['belong'],'\t',items['spname'],'\t',str(times)+"年",'\t',"平均分：",items['average'],'\t',"最低分：",items['min'],'\t',"最低位次:",items['min_section'],'\t',"录取批次:",items['local_batch_name'],'\n')
+          print(info['name'],'\t','211:'+info['f211'],'\t','985:'+info['f985'],'\t',info['belong'],'\t',items['spname'],'\t',str(times)+"年",'\t',"平均分：",items['average'],'\t',"最低分：",items['min'],'\t',"最低位次:",items['min_section'],'\t',"录取批次:",items['local_batch_name'],'\n')
 print(str(times)+"年全国"+str(major)+"专业录取信息查询完成！") #所有数据遍历完成后才会打印它
